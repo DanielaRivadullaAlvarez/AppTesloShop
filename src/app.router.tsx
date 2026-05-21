@@ -10,6 +10,10 @@ import { DashboardPage } from "./admin/pages/dashboard/DashboardPage";
 import { AdminProductsPage } from "./admin/pages/products/AdminProductsPage";
 import { AdminProductPage } from "./admin/pages/product/AdminProductPage";
 
+import {
+  AdminRouter,
+  NotAuthenticatedRouter,
+} from "./components/routes/ProtectedRouters";
 
 //Pasado a carga perezosa
 // import { AdminLayout } from './admin/layouts/AdminLayout';
@@ -42,7 +46,11 @@ export const appRouter = createBrowserRouter([
   //Auth Routes
   {
     path: "/auth",
-    element: <AuthLayout />,
+    element: (
+      <NotAuthenticatedRouter>
+        <AuthLayout />
+      </NotAuthenticatedRouter>
+    ),
     children: [
       {
         index: true,
@@ -61,7 +69,11 @@ export const appRouter = createBrowserRouter([
   //Admin Routes
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: (
+      <AdminRouter>
+        <AdminLayout />
+      </AdminRouter>
+    ),
     children: [
       {
         index: true,
