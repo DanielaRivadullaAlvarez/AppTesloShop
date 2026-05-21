@@ -13,7 +13,7 @@ import {
 import { currencyFormatter } from "@/lib/currency-formatter";
 import { useProducts } from "@/shop/hooks/useProducts";
 import { PencilIcon, PlusIcon } from "lucide-react";
-import { Link, Navigate } from "react-router";
+import { Link } from "react-router";
 
 export const AdminProductsPage = () => {
   const { data, isLoading } = useProducts();
